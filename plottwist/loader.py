@@ -76,7 +76,7 @@ def init(do_reload=False, import_libs=True, dev=False):
         import artellapipe.loader
         artellapipe.loader.init(do_reload=do_reload, dev=dev)
 
-    from plottiwst.core import project
+    from plottwist.core import project
 
     plottwist_core_importer = importer.init_importer(importer_class=PlotTwistCore, do_reload=False)
     plottwist_core_importer.import_packages(
