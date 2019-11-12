@@ -1,0 +1,10 @@
+plottwist.assets package
+========================
+
+Module contents
+---------------
+
+.. automodule:: plottwist.assets
+   :members:
+   :undoc-members:
+   :show-inheritance:

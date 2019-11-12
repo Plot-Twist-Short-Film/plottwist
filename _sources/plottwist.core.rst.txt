@@ -1,0 +1,10 @@
+plottwist.core package
+======================
+
+Module contents
+---------------
+
+.. automodule:: plottwist.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
