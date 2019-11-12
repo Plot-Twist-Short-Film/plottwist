@@ -1,6 +1,13 @@
 plottwist.core package
 ======================
 
+Submodules
+----------
+
+.. toctree::
+
+   plottwist.core.project
+
 Module contents
 ---------------
 
