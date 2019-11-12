@@ -1,7 +1,7 @@
-plottwist-core
+plottwist
 ============================================================
 
-Core implementation for ArtellaPipe based plottwist Pipeline
+Core implementation for ArtellaPipe based Plot Twist Pipeline
 
 .. image:: https://travis-ci.com/Plot-Twist-Short-Film/plottwist-core.svg?branch=master&kill_cache=1
     :target: https://travis-ci.com/Plot-Twist-Short-Film/plottwist-core
