@@ -1,0 +1,19 @@
+# ===================================================================
+# plottwist-core requirements file
+# ===================================================================
+Qt.py
+pytest
+pytest-cov
+coveralls
+sphinx
+sphinx_rtd_theme
+python-json-logger
+tpPyUtils
+tpDccLib
+artellapipe
+sentry-sdk
+tpPyUtils
+tpDccLib
+tpQtLib
+tpMayaLib
+tpHoudiniLib

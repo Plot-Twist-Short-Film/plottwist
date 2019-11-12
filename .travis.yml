@@ -1,0 +1,30 @@
+language: python
+before_install:
+- pip install pycodestyle
+install:
+- pip install -r requirements.txt
+- python setup.py install
+script:
+- find . -name \*.py -exec pycodestyle --max-line-length=120 --ignore=E402 {} +
+- pytest --cov=plottwist
+- sphinx-apidoc -f -e -o docs/sphinx plottwist
+- sphinx-build -M html ./docs/sphinx ./
+after_success:
+- coveralls
+- cd html && touch .nojekyll && cd ../
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_token: "$GITHUB_TOKEN"
+    keep_history: true
+    local_dir: html
+    on:
+      branch: master
+  - provider: pypi
+    skip_cleanup: true
+    user: tpoveda
+    password:
+      secure: j0lcMvERprRcpS3GOlioOBUmUdDHdaqHEDc1w+tXY2koJ5IHIQkxXO3N1Ne0krDitybTgzrs7jBA2AXwaMZKtfT/Fo9EQ387HLV5bAqykUpVBXZrrFerMrwczaeSk1SI6HUJ05PT8aMFY5PmJzj12iRYZ//ZMjvJa5Lk01ZaOoOqUnMmIXCJFdP+A9dPeBJ+syYwWBUJ6ZtSJ+34ldXdSjFzaeKIlkW2lo9sa1msmEM7m3JK6cPGdvloo4s7MgheVIygLAlVXa/lTbD2l39hNZQvrcGGTIa2NBfW7hiC7vjawU5uA/HoEZbJ/+rY6VBSEUG7KZxJactilEpffp2STl2a/0HsMoTOFEBpw27X1j7gNQ7GARaD8uIBdGTyy6ulx3ghuQAn3CUBMKK4FAuGDiz1W0uY6qIG/H3EnmE4SJJXzmWzoa2Odg1HtFpMuzd+7k4vf4vdFqh3xu26hne4wsRvd9TgLXoerUi5EwHmvvTMVQt9tv7xVhosVLElWyudWApFlrMUej98hlr8xB7sKuu4F4SPf+ZXQgjwO8U63vo25tWgyR2ASdPt2XsEIs9DrNNdBkNyvHnfVkkT0OOF/0PglYJRlgK9GMTdZxIaVFY/mDUd/831XlaOvcgyfVI+DK/HAuDl1+c5GIbMRN+AXk0Vxi9lk9R+PxM0rDD+S5Q=
+    on:
+      branch: master
+      tags: true
