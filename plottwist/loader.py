@@ -18,7 +18,7 @@ import inspect
 import logging.config
 
 
-def init(do_reload=False, import_libs=True, dev=False):
+def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None):
     """
     Initializes Plot Twist library
     """
