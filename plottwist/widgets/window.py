@@ -22,7 +22,7 @@ class PlotTwistWindowStatusBar(window.ArtellaWindowStatusBar, object):
         super(PlotTwistWindowStatusBar, self).__init__(parent=parent)
 
         self._user_info = userinfo.KitsuUserInfo(project=self._project, parent=parent)
-        self.main_layout.insertWidget(self.main_layout.count()-1, self._user_info)
+        self.main_layout.insertWidget(self.main_layout.count() - 1, self._user_info)
 
     def set_project(self, project):
         super(PlotTwistWindowStatusBar, self).set_project(project)
