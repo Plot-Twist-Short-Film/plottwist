@@ -6,7 +6,9 @@ Submodules
 
 .. toctree::
 
+   plottwist.core.asset
    plottwist.core.project
+   plottwist.core.tool
 
 Module contents
 ---------------

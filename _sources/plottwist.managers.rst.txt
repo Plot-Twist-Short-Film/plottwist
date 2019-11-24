@@ -1,0 +1,18 @@
+plottwist.managers package
+==========================
+
+Submodules
+----------
+
+.. toctree::
+
+   plottwist.managers.assets
+   plottwist.managers.menu
+
+Module contents
+---------------
+
+.. automodule:: plottwist.managers
+   :members:
+   :undoc-members:
+   :show-inheritance:

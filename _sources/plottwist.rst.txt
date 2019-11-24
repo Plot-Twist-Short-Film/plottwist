@@ -9,7 +9,9 @@ Subpackages
    plottwist.assets
    plottwist.core
    plottwist.files
+   plottwist.managers
    plottwist.tools
+   plottwist.widgets
 
 Submodules
 ----------

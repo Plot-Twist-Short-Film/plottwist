@@ -1,6 +1,14 @@
 plottwist.assets package
 ========================
 
+Submodules
+----------
+
+.. toctree::
+
+   plottwist.assets.character
+   plottwist.assets.prop
+
 Module contents
 ---------------
 
