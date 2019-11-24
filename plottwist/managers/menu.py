@@ -12,6 +12,7 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
+import logging
 import webbrowser
 
 from Qt.QtWidgets import *
@@ -21,6 +22,8 @@ from tpPyUtils import decorators
 import artellapipe.register
 from artellapipe.utils import resource
 import artellapipe.libs.kitsu as kitsu_lib
+
+LOGGER = logging.getLogger()
 
 
 class PlotTwistMenu(artellapipe.Menu, object):
@@ -37,9 +40,10 @@ class PlotTwistMenu(artellapipe.Menu, object):
     def create_menus(self):
         valid_creation = super(PlotTwistMenu, self).create_menus()
         if not valid_creation:
+            LOGGER.warning('Something went wrong during the creation of Plot Twist Menu')
             return False
 
-        self.create_kitsu_menu()
+        return self.create_kitsu_menu()
 
     def get_menu_names(self):
         menu_names = super(PlotTwistMenu, self).get_menu_names()
@@ -54,6 +58,8 @@ class PlotTwistMenu(artellapipe.Menu, object):
         self._parent.menuBar().addAction(self._kitsu_action)
         self._kitsu_action.setObjectName(self._kitsu_action_object_name)
         self._kitsu_action.triggered.connect(self._on_kitsu_open)
+
+        return True
 
     def _on_kitsu_open(self):
         """
@@ -73,4 +79,5 @@ class PlotTwistMenuManagerSingleton(PlotTwistMenu, object):
         PlotTwistMenu.__init__(self)
 
 
+artellapipe.register.register_class('Menu', PlotTwistMenu)
 artellapipe.register.register_class('MenuMgr', PlotTwistMenuManagerSingleton)
