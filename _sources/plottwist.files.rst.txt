@@ -8,6 +8,7 @@ Submodules
 
    plottwist.files.alembic
    plottwist.files.groom
+   plottwist.files.lightrig
    plottwist.files.model
    plottwist.files.rig
    plottwist.files.shading
