@@ -54,9 +54,13 @@ class ArtellaPlotTwistOCIOManager(ocio.ArtellaOCIOManager, object):
 
         tp.Dcc.unlock_attribute('defaultRenderGlobals', 'currentRenderer')
         tp.Dcc.set_string_attribute_value('defaultRenderGlobals', 'currentRenderer', 'arnold')
-        # if maya.cmds.window("unifiedRenderGlobalsWindow", exists=True):
-        #     maya.cmds.deleteUI("unifiedRenderGlobalsWindow")
-        # maya.mel.eval('unifiedRenderGlobalsWindow;')
+
+        # We need to initialize this window to be able to set defaultArnoldRenderOptions
+        if maya.cmds.window("unifiedRenderGlobalsWindow", exists=True):
+            maya.cmds.deleteUI("unifiedRenderGlobalsWindow")
+        maya.mel.eval('unifiedRenderGlobalsWindow;')
+        if maya.cmds.window("unifiedRenderGlobalsWindow", exists=True):
+            maya.cmds.deleteUI("unifiedRenderGlobalsWindow")
 
     def set_arnold_filter(self, filter_name):
         """
