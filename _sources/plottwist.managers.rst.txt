@@ -8,6 +8,7 @@ Submodules
 
    plottwist.managers.assets
    plottwist.managers.menu
+   plottwist.managers.ocio
 
 Module contents
 ---------------
