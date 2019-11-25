@@ -12,28 +12,35 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
+from Qt.QtWidgets import *
+
+from tpQtLib.core import dragger
+
 import artellapipe.register
 from artellapipe.widgets import window
 from artellapipe.libs.kitsu.widgets import userinfo
 
 
-class PlotTwistWindowStatusBar(window.ArtellaWindowStatusBar, object):
-    def __init__(self, parent=None):
-        super(PlotTwistWindowStatusBar, self).__init__(parent=parent)
-
-        self._user_info = userinfo.KitsuUserInfo(project=self._project, parent=parent)
-        self.main_layout.insertWidget(self.main_layout.count() - 1, self._user_info)
+class PlotTwistWindowDragger(dragger.WindowDragger, object):
+    def __init__(self, parent=None, on_close=None):
+        self._user_info = None
+        super(PlotTwistWindowDragger, self).__init__(parent=parent, on_close=on_close)
 
     def set_project(self, project):
-        super(PlotTwistWindowStatusBar, self).set_project(project)
-
-        self._user_info.set_project(project)
+        if self._user_info:
+            self._user_info.set_project(project)
+        else:
+            self._user_info = userinfo.KitsuUserInfo(project=project)
+            self.buttons_layout.insertWidget(0, self._user_info)
 
     def try_kitsu_login(self):
         """
         Function that tries to login into Kitsu with stored credentials
         :return: bool
         """
+
+        if not self._user_info:
+            return False
 
         valid_login = self._user_info.try_kitsu_login()
         if valid_login:
@@ -44,10 +51,17 @@ class PlotTwistWindowStatusBar(window.ArtellaWindowStatusBar, object):
 
 class PlotTwistWindow(window.ArtellaWindow, object):
 
-    STATUS_BAR_WIDGET = PlotTwistWindowStatusBar
+    DRAGGER_CLASS = PlotTwistWindowDragger
 
     def __init__(self, *args, **kwargs):
         super(PlotTwistWindow, self).__init__(*args, **kwargs)
+
+        if not self._tool:
+            return
+
+        kitsu_login = self._tool.config.get('kitsu_login', default=True)
+        if kitsu_login:
+            self._dragger.set_project(self._project)
 
     def try_kitsu_login(self):
         """
@@ -55,7 +69,12 @@ class PlotTwistWindow(window.ArtellaWindow, object):
         :return: bool
         """
 
-        return self._status_bar.try_kitsu_login()
+        if not self._tool:
+            return
+
+        kitsu_login = self._tool.config.get('kitsu_login', default=True)
+        if kitsu_login:
+            return self._dragger.try_kitsu_login()
 
 
 artellapipe.register.register_class('Window', PlotTwistWindow)
