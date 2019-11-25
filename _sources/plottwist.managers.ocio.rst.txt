@@ -1,7 +1,0 @@
-plottwist.managers.ocio module
-==============================
-
-.. automodule:: plottwist.managers.ocio
-   :members:
-   :undoc-members:
-   :show-inheritance:
