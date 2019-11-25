@@ -13,9 +13,26 @@ __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
 
+import artellapipe
 from artellapipe.core import project as artella_project
 
 
 class PlotTwist(artella_project.ArtellaProject, object):
     def __init__(self):
         super(PlotTwist, self).__init__(name='PlotTwist')
+
+    def init(self, force_skip_hello=False):
+        super(PlotTwist, self).init(force_skip_hello=force_skip_hello)
+
+        self.create_ocio_manager()
+
+    def create_ocio_manager(self):
+        """
+        Creates instance of the OCIO Mnaager used by the project
+        :return: ArtellaOCIOManager
+        """
+
+        ocio_manager = artellapipe.OCIOMgr()
+        ocio_manager.set_project(self)
+
+        return ocio_manager

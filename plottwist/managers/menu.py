@@ -79,5 +79,4 @@ class PlotTwistMenuManagerSingleton(PlotTwistMenu, object):
         PlotTwistMenu.__init__(self)
 
 
-artellapipe.register.register_class('Menu', PlotTwistMenu)
 artellapipe.register.register_class('MenuMgr', PlotTwistMenuManagerSingleton)
