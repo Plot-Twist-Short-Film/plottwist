@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Module that contains implementations for rig asset files
+Module that contains implementations for light rig files in Plot Twist
 """
 
 from __future__ import print_function, division, absolute_import
@@ -23,9 +23,9 @@ LOGGER = logging.getLogger()
 
 
 class PlotTwistLightRigFile(file.ArtellaFile, object):
-    def __init__(self, file_name, file_path=None, file_extension=None):
+    def __init__(self, project, file_name, file_path=None, file_extension=None):
         super(PlotTwistLightRigFile, self).__init__(
-            file_name=file_name, file_path=file_path, file_extension=file_extension)
+            project=project, file_name=file_name, file_path=file_path, file_extension=file_extension)
 
     def get_template_dict(self):
         """
@@ -34,7 +34,7 @@ class PlotTwistLightRigFile(file.ArtellaFile, object):
         """
 
         return {
-            'assets_path': artellapipe.AssetsMgr().get_assets_path(),
+            'project_path': self._project.get_path(),
             'light_rig_name': self.name
         }
 

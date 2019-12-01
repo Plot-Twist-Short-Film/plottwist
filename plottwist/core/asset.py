@@ -14,7 +14,7 @@ __email__ = "tpovedatd@gmail.com"
 import logging
 
 import artellapipe.register
-from artellapipe.core import asset
+from artellapipe.core import defines, asset
 
 LOGGER = logging.getLogger()
 
@@ -33,7 +33,7 @@ class PlotTwistAsset(asset.ArtellaAsset, object):
 
         return self.reference_file(
             file_type=file_type, namespace=self.get_id(),
-            status=asset.ArtellaAssetFileStatus.PUBLISHED, sync=sync)
+            status=defines.ArtellaFileStatus.PUBLISHED, sync=sync)
 
 
 artellapipe.register.register_class('Asset', PlotTwistAsset)
