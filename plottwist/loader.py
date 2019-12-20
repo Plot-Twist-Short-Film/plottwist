@@ -37,8 +37,8 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
     from tpPyUtils import importer
 
     class PlotTwistCore(importer.Importer, object):
-        def __init__(self):
-            super(PlotTwistCore, self).__init__(module_name='plottwist')
+        def __init__(self, debug=False):
+            super(PlotTwistCore, self).__init__(module_name='plottwist', debug=debug)
 
         def get_module_path(self):
             """
@@ -78,7 +78,7 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
 
     from plottwist.core import project
 
-    plottwist_core_importer = importer.init_importer(importer_class=PlotTwistCore, do_reload=False)
+    plottwist_core_importer = importer.init_importer(importer_class=PlotTwistCore, do_reload=False, debug=dev)
     plottwist_core_importer.import_packages(
         only_packages=False,
         order=packages_order,
