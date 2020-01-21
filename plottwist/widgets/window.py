@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Base wrapper classes to create DCC windows
+Base wrapper classes to create DCC windows for Plot Twist
 """
 
 from __future__ import print_function, division, absolute_import
@@ -11,8 +11,6 @@ __author__ = "Tomas Poveda"
 __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
-
-from Qt.QtWidgets import *
 
 from tpQtLib.core import dragger
 

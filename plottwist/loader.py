@@ -73,6 +73,8 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
         tpQtLib.init(do_reload=do_reload)
         import tpNameIt
         tpNameIt.init(do_reload=do_reload)
+        import tpRenamer
+        tpRenamer.init(do_reload=do_reload)
         import artellapipe.loader
         artellapipe.loader.init(do_reload=do_reload, dev=dev)
 

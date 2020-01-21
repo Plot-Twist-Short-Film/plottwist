@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Module that contains core classes for tools
+Module that contains base tool class for Plot Twist
 """
 
 from __future__ import print_function, division, absolute_import
