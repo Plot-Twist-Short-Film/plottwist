@@ -17,10 +17,10 @@ import webbrowser
 
 from Qt.QtWidgets import *
 
-from tpPyUtils import decorators
+import tpDcc
+from tpDcc.libs.python import decorators
 
 import artellapipe.register
-from artellapipe.utils import resource
 import artellapipe.libs.kitsu as kitsu_lib
 
 LOGGER = logging.getLogger()
@@ -54,7 +54,7 @@ class PlotTwistMenu(artellapipe.Menu, object):
 
     def create_kitsu_menu(self):
         self._kitsu_action = QAction(self._parent.menuBar())
-        self._kitsu_action.setIcon(resource.ResourceManager().icon('kitsu'))
+        self._kitsu_action.setIcon(tpDcc.ResourcesMgr().icon('kitsu'))
         self._parent.menuBar().addAction(self._kitsu_action)
         self._kitsu_action.setObjectName(self._kitsu_action_object_name)
         self._kitsu_action.triggered.connect(self._on_kitsu_open)
