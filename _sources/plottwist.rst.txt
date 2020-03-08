@@ -9,8 +9,10 @@ Subpackages
    plottwist.assets
    plottwist.core
    plottwist.files
+   plottwist.libs
    plottwist.managers
    plottwist.tools
+   plottwist.toolsets
    plottwist.widgets
 
 Submodules
@@ -19,6 +21,7 @@ Submodules
 .. toctree::
 
    plottwist.loader
+   plottwist.register
 
 Module contents
 ---------------

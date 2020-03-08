@@ -21,10 +21,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -92,8 +92,10 @@
 <li class="toctree-l4"><a class="reference internal" href="plottwist.assets.html">plottwist.assets package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plottwist.core.html">plottwist.core package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plottwist.files.html">plottwist.files package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plottwist.libs.html">plottwist.libs package</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="plottwist.managers.html">plottwist.managers package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plottwist.tools.html">plottwist.tools package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plottwist.toolsets.html">plottwist.toolsets package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="plottwist.widgets.html">plottwist.widgets package</a></li>
 </ul>
 </li>
@@ -174,76 +176,8 @@
 
            <div itemprop="articleBody">
             
-  <div class="section" id="module-plottwist.managers.ocio">
-<span id="plottwist-managers-ocio-module"></span><h1>plottwist.managers.ocio module<a class="headerlink" href="#module-plottwist.managers.ocio" title="Permalink to this headline">¶</a></h1>
-<p>Module that contains manager that handles OCIO setup in Plot Twist</p>
-<dl class="class">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager">
-<em class="property">class </em><code class="sig-prename descclassname">plottwist.managers.ocio.</code><code class="sig-name descname">ArtellaPlotTwistOCIOManager</code><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">artellapipe.managers.ocio.ArtellaOCIOManager</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.init_ocio">
-<code class="sig-name descname">init_ocio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.init_ocio" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initializes OCIO setup of current DCC and project</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_adaptative_sampling">
-<code class="sig-name descname">set_arnold_adaptative_sampling</code><span class="sig-paren">(</span><em class="sig-param">enabled</em>, <em class="sig-param">max_camera_aa=None</em>, <em class="sig-param">adaptative_threshold=None</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_adaptative_sampling" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the adaptative sampling of arnold
-:param enabled: bool
-:param max_camera_aa: int
-:param adaptative_threshold: float</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_antialiasing">
-<code class="sig-name descname">set_arnold_antialiasing</code><span class="sig-paren">(</span><em class="sig-param">aa_samples=3</em>, <em class="sig-param">diffuse_samples=2</em>, <em class="sig-param">specular_samples=2</em>, <em class="sig-param">transmission_samples=2</em>, <em class="sig-param">sss_samples=2</em>, <em class="sig-param">volume_indirect_samples=2</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_antialiasing" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the samples used by Arnold renderer antialising
-:param aa_samples: int
-:param diffuse_samples: int
-:param specular_samples: int
-:param transmission_samples: int
-:param sss_samples: int
-:param volume_indirect_samples: int</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter">
-<code class="sig-name descname">set_arnold_filter</code><span class="sig-paren">(</span><em class="sig-param">filter_name</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the filter used by Arnold renderer
-:param filter_name: str, name of the filter used by Arnold</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter_width">
-<code class="sig-name descname">set_arnold_filter_width</code><span class="sig-paren">(</span><em class="sig-param">width</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the widget used by current Arnold renderer filter
-:param width: float</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_low_light_threshold">
-<code class="sig-name descname">set_arnold_low_light_threshold</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_low_light_threshold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the low light threshold value used by Arnold renderer
-:param value: float</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_progressive_render">
-<code class="sig-name descname">set_arnold_progressive_render</code><span class="sig-paren">(</span><em class="sig-param">flag</em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_progressive_render" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets whether Arnold progressive is render is enabled or not
-:param flag: bool</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_renderer">
-<code class="sig-name descname">set_arnold_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_renderer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets Arnold renderer as the active one</p>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="plottwist-managers-ocio-module">
+<h1>plottwist.managers.ocio module<a class="headerlink" href="#plottwist-managers-ocio-module" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
