@@ -12,6 +12,7 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
+import os
 
 import artellapipe
 from artellapipe.core import project as artella_project
@@ -36,3 +37,27 @@ class PlotTwist(artella_project.ArtellaProject, object):
         ocio_manager.set_project(self)
 
         return ocio_manager
+
+    def get_toolsets_paths(self):
+        """
+        Overrides base ArtellaProject get_toolsets_paths
+        Returns path where project toolsets are located
+        :return: list(str)
+        """
+
+        import plottwist.toolsets
+
+        return [os.path.dirname(os.path.abspath(plottwist.toolsets.__file__))]
+
+    def get_resources_paths(self):
+        """
+        Overrides base ArtellaProject get_resources_paths
+        Returns path where project resources are located
+        :return: dict(str, str)
+        """
+
+        resources_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'resources')
+        return {
+            'project': resources_path,
+            'shelf': os.path.join(resources_path, 'icons', 'shelf')
+        }
