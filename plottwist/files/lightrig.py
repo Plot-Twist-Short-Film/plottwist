@@ -14,7 +14,7 @@ __email__ = "tpovedatd@gmail.com"
 
 import logging
 
-import tpDccLib as tp
+import tpDcc as tp
 
 import artellapipe
 from artellapipe.core import file
@@ -27,14 +27,15 @@ class PlotTwistLightRigFile(file.ArtellaFile, object):
         super(PlotTwistLightRigFile, self).__init__(
             project=project, file_name=file_name, file_path=file_path, file_extension=file_extension)
 
-    def get_template_dict(self):
+    def get_template_dict(self, **kwargs):
         """
         Implements get_template_dict() function
         :return: dict
         """
 
         return {
-            'project_path': self._project.get_path(),
+            'project_id': self._project.id,
+            'project_id_number': self._project.id_number,
             'light_rig_name': self.name
         }
 

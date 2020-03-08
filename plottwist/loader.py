@@ -18,13 +18,10 @@ import inspect
 import logging.config
 
 
-def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None):
+def init(do_reload=False, import_libs=True, dev=False):
     """
     Initializes Plot Twist library
     """
-
-    # Load logger configuration
-    logging.config.fileConfig(get_logging_config(), disable_existing_loggers=False)
 
     # Without default_integrations=False, PyInstaller fails during launcher generation
     if not dev:
@@ -34,7 +31,8 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
         except (RuntimeError, ImportError):
             sentry_sdk.init("https://d71a4ba272374d7fb845269bb2aebf37@sentry.io/1816355", default_integrations=False)
 
-    from tpPyUtils import importer
+    from tpDcc.libs.python import importer
+    from plottwist import register
 
     class PlotTwistCore(importer.Importer, object):
         def __init__(self, debug=False):
@@ -65,18 +63,8 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
     ]
 
     if import_libs:
-        import tpPyUtils
-        tpPyUtils.init(do_reload=do_reload)
-        import tpDccLib
-        tpDccLib.init(do_reload=do_reload)
-        import tpQtLib
-        tpQtLib.init(do_reload=do_reload)
-        import tpNameIt
-        tpNameIt.init(do_reload=do_reload)
-        import tpRenamer
-        tpRenamer.init(do_reload=do_reload)
         import artellapipe.loader
-        artellapipe.loader.init(do_reload=do_reload, dev=dev)
+        artellapipe.loader.init(do_reload=do_reload, import_libs=True, dev=dev)
 
     from plottwist.core import project
 
@@ -89,15 +77,19 @@ def init(do_reload=False, import_libs=True, dev=False, artella_configs_path=None
     if do_reload:
         plottwist_core_importer.reload_all()
 
-    create_logger_directory()
-
-    from artellapipe.utils import resource
-    resources_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'resources')
-    resource.ResourceManager().register_resource(resources_path, 'project')
-    resource.ResourceManager().register_resource(os.path.join(resources_path, 'icons', 'shelf'), 'shelf')
-
     import artellapipe.loader
     artellapipe.loader.set_project(project.PlotTwist, do_reload=do_reload)
+
+
+def create_logger():
+    """
+    Returns logger of current module
+    """
+
+    logging.config.fileConfig(get_logging_config(), disable_existing_loggers=False)
+    logger = logging.getLogger('plottwist')
+
+    return logger
 
 
 def create_logger_directory():
