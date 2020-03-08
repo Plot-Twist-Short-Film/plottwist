@@ -14,15 +14,15 @@ __email__ = "tpovedatd@gmail.com"
 
 import logging
 
-import tpDccLib as tp
-from tpPyUtils import decorators
+import tpDcc as tp
+from tpDcc.libs.python import decorators
 
 import artellapipe.register
 from artellapipe.managers import ocio
 
 if tp.is_maya():
-    import tpMayaLib as maya
-    from tpMayaLib.core import colormanagement
+    import tpDcc.dccs.maya as maya
+    from tpDcc.dccs.maya.core import colormanagement
 
 LOGGER = logging.getLogger()
 
