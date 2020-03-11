@@ -8,12 +8,10 @@ coveralls
 sphinx
 sphinx_rtd_theme
 python-json-logger
-tpPyUtils
-tpDccLib
 artellapipe
 sentry-sdk
-tpPyUtils
-tpDccLib
-tpQtLib
-tpMayaLib
-tpHoudiniLib
+tpDcc-libs-python
+tpDcc-core
+tpDcc-libs-qt
+tpDcc-dccs-maya
+artellapipe
