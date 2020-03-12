@@ -34,6 +34,9 @@ def init(do_reload=False, import_libs=True, dev=False):
     from tpDcc.libs.python import importer
     from plottwist import register
 
+    logger = create_logger()
+    register.register_class('logger', logger)
+
     class PlotTwistCore(importer.Importer, object):
         def __init__(self, debug=False):
             super(PlotTwistCore, self).__init__(module_name='plottwist', debug=debug)
@@ -51,8 +54,8 @@ def init(do_reload=False, import_libs=True, dev=False):
                     mod_dir = os.path.dirname(__file__)
                 except Exception:
                     try:
-                        import tpDccLib
-                        mod_dir = tpDccLib.__path__[0]
+                        import plottwist
+                        mod_dir = plottwist.__path__[0]
                     except Exception:
                         return None
 
