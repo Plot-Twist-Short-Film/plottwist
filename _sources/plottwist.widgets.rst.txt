@@ -5,6 +5,7 @@ Submodules
 ----------
 
 .. toctree::
+   :maxdepth: 4
 
    plottwist.widgets.asset
    plottwist.widgets.window
