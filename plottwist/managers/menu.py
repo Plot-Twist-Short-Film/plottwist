@@ -40,7 +40,8 @@ class PlotTwistMenu(menus.ArtellaMenusManager, object):
 
     def create_kitsu_menu(self):
 
-        parent_menu_bar = qtutils.get_window_menu_bar(tpDcc.Dcc.get_main_window())
+        main_win = tpDcc.Dcc.get_main_window()
+        parent_menu_bar = main_win.menuBar()
         if not parent_menu_bar:
             return
 
