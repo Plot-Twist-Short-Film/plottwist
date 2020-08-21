@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="plottwist.tools package" href="plottwist.tools.html" />
@@ -50,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> plottwist
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> plottwist
           
 
           
@@ -77,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -110,6 +112,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -148,7 +151,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="modules.html">plottwist</a> &raquo;</li>
         
@@ -180,18 +183,18 @@
 <span id="plottwist-managers-ocio-module"></span><h1>plottwist.managers.ocio module<a class="headerlink" href="#module-plottwist.managers.ocio" title="Permalink to this headline">¶</a></h1>
 <p>Module that contains manager that handles OCIO setup in Plot Twist</p>
 <dl class="py class">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager">
-<em class="property">class </em><code class="sig-prename descclassname">plottwist.managers.ocio.</code><code class="sig-name descname">ArtellaPlotTwistOCIOManager</code><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">artellapipe.managers.ocio.ArtellaOCIOManager</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager">
+<em class="property">class </em><code class="sig-prename descclassname">plottwist.managers.ocio.</code><code class="sig-name descname">PlotTwistOCIOManager</code><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">artellapipe.managers.ocio.OCIOManager</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.init_ocio">
-<code class="sig-name descname">init_ocio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.init_ocio" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.init_ocio">
+<code class="sig-name descname">init_ocio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.init_ocio" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes OCIO setup of current DCC and project</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_adaptative_sampling">
-<code class="sig-name descname">set_arnold_adaptative_sampling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">enabled</span></em>, <em class="sig-param"><span class="n">max_camera_aa</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">adaptative_threshold</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_adaptative_sampling" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_adaptative_sampling">
+<code class="sig-name descname">set_arnold_adaptative_sampling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">enabled</span></em>, <em class="sig-param"><span class="n">max_camera_aa</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">adaptative_threshold</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_adaptative_sampling" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the adaptative sampling of arnold
 :param enabled: bool
 :param max_camera_aa: int
@@ -199,8 +202,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_antialiasing">
-<code class="sig-name descname">set_arnold_antialiasing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aa_samples</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">diffuse_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">specular_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">transmission_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">sss_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">volume_indirect_samples</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_antialiasing" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_antialiasing">
+<code class="sig-name descname">set_arnold_antialiasing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">aa_samples</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">diffuse_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">specular_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">transmission_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">sss_samples</span><span class="o">=</span><span class="default_value">2</span></em>, <em class="sig-param"><span class="n">volume_indirect_samples</span><span class="o">=</span><span class="default_value">2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_antialiasing" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the samples used by Arnold renderer antialising
 :param aa_samples: int
 :param diffuse_samples: int
@@ -211,45 +214,39 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter">
-<code class="sig-name descname">set_arnold_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filter_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_filter">
+<code class="sig-name descname">set_arnold_filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filter_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the filter used by Arnold renderer
 :param filter_name: str, name of the filter used by Arnold</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter_width">
-<code class="sig-name descname">set_arnold_filter_width</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_filter_width" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_filter_width">
+<code class="sig-name descname">set_arnold_filter_width</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">width</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_filter_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the widget used by current Arnold renderer filter
 :param width: float</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_low_light_threshold">
-<code class="sig-name descname">set_arnold_low_light_threshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_low_light_threshold" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_low_light_threshold">
+<code class="sig-name descname">set_arnold_low_light_threshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_low_light_threshold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the low light threshold value used by Arnold renderer
 :param value: float</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_progressive_render">
-<code class="sig-name descname">set_arnold_progressive_render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_progressive_render" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_progressive_render">
+<code class="sig-name descname">set_arnold_progressive_render</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">flag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_progressive_render" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets whether Arnold progressive is render is enabled or not
 :param flag: bool</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_renderer">
-<code class="sig-name descname">set_arnold_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager.set_arnold_renderer" title="Permalink to this definition">¶</a></dt>
+<dt id="plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_renderer">
+<code class="sig-name descname">set_arnold_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#plottwist.managers.ocio.PlotTwistOCIOManager.set_arnold_renderer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets Arnold renderer as the active one</p>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py class">
-<dt id="plottwist.managers.ocio.ArtellaPlotTwistOCIOManagerSingleton">
-<em class="property">class </em><code class="sig-prename descclassname">plottwist.managers.ocio.</code><code class="sig-name descname">ArtellaPlotTwistOCIOManagerSingleton</code><a class="headerlink" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManagerSingleton" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#plottwist.managers.ocio.ArtellaPlotTwistOCIOManager" title="plottwist.managers.ocio.ArtellaPlotTwistOCIOManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">plottwist.managers.ocio.ArtellaPlotTwistOCIOManager</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 </dd></dl>
 
 </div>
@@ -278,11 +275,19 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2019, Tomas Poveda
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -293,7 +298,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
