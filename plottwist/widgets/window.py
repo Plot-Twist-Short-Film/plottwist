@@ -14,7 +14,6 @@ __email__ = "tpovedatd@gmail.com"
 
 from tpDcc.libs.qt.core import dragger
 
-import artellapipe.register
 from artellapipe.widgets import window
 from artellapipe.libs.kitsu.widgets import userinfo
 
@@ -57,6 +56,9 @@ class PlotTwistWindow(window.ArtellaWindow, object):
     def ui(self):
         super(PlotTwistWindow, self).ui()
 
+        if not self._config:
+            return
+
         kitsu_login = self._config.get('kitsu_login', default=True)
         if kitsu_login:
             self._dragger.set_project(self._project)
@@ -68,9 +70,9 @@ class PlotTwistWindow(window.ArtellaWindow, object):
         :return: bool
         """
 
+        if not self._config:
+            return
+
         kitsu_login = self._config.get('kitsu_login', default=True)
         if kitsu_login:
             return self._dragger.try_kitsu_login()
-
-
-artellapipe.register.register_class('Window', PlotTwistWindow)

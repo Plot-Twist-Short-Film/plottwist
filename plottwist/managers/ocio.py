@@ -15,24 +15,20 @@ __email__ = "tpovedatd@gmail.com"
 import logging
 
 import tpDcc as tp
-from tpDcc.libs.python import decorators
 
-import artellapipe.register
 from artellapipe.managers import ocio
 
 if tp.is_maya():
     import tpDcc.dccs.maya as maya
     from tpDcc.dccs.maya.core import colormanagement
 
-LOGGER = logging.getLogger()
+LOGGER = logging.getLogger('plottwist')
 
 
-class ArtellaPlotTwistOCIOManager(ocio.ArtellaOCIOManager, object):
-    def __init__(self):
-        super(ArtellaPlotTwistOCIOManager, self).__init__()
+class PlotTwistOCIOManager(ocio.OCIOManager, object):
 
     def init_ocio(self):
-        super(ArtellaPlotTwistOCIOManager, self).init_ocio()
+        super(PlotTwistOCIOManager, self).init_ocio()
 
         self.set_arnold_renderer()
 
@@ -136,12 +132,3 @@ class ArtellaPlotTwistOCIOManager(ocio.ArtellaOCIOManager, object):
             tp.Dcc.set_attribute_value('defaultArnoldRenderOptions', 'AASamplesMax', int(max_camera_aa))
         if adaptative_threshold is not None:
             tp.Dcc.set_attribute_value('defaultArnoldRenderOptions', 'AAAdaptiveThreshold', float(adaptative_threshold))
-
-
-@decorators.Singleton
-class ArtellaPlotTwistOCIOManagerSingleton(ArtellaPlotTwistOCIOManager, object):
-    def __init__(self):
-        ArtellaPlotTwistOCIOManager.__init__(self)
-
-
-artellapipe.register.register_class('OCIOMgr', ArtellaPlotTwistOCIOManagerSingleton)

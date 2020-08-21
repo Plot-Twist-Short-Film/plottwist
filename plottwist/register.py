@@ -12,19 +12,44 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
+import plottwist
 
-def register_class(cls_name, cls, is_unique=False):
+# =================================================================================
+
+REGISTER_ATTR = '_registered_classes'
+
+# =================================================================================
+
+
+def register_class(cls_name, cls, is_unique=True, skip_store=False):
     """
-    This function registers given class
+    This function registers given class into plottwist module
     :param cls_name: str, name of the class we want to register
     :param cls: class, class we want to register
     :param is_unique: bool, Whether if the class should be updated if new class is registered with the same name
+    :param skip_store: bool, Whether the registered class should be removed during cleanup operation
+        Useful in scenarios where we want to cleanup registered class manually.
     """
 
-    import plottwist
+    if REGISTER_ATTR not in plottwist.__dict__:
+        plottwist.__dict__[REGISTER_ATTR] = list()
 
-    if is_unique:
-        if cls_name in plottwist.__dict__:
-            setattr(plottwist.__dict__, cls_name, getattr(plottwist.__dict__, cls_name))
-    else:
-        plottwist.__dict__[cls_name] = cls
+    if not is_unique and cls_name in plottwist.__dict__:
+        return
+
+    plottwist.__dict__[cls_name] = cls
+    if not skip_store:
+        plottwist.__dict__[REGISTER_ATTR].append(cls_name)
+
+
+def cleanup():
+
+    if REGISTER_ATTR not in plottwist.__dict__:
+        return
+
+    for cls_name in plottwist.__dict__[REGISTER_ATTR]:
+        if cls_name not in plottwist.__dict__:
+            continue
+        # print('Deleting: {}'.format(cls_name))
+        del plottwist.__dict__[cls_name]
+    del plottwist.__dict__[REGISTER_ATTR]

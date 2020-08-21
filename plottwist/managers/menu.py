@@ -17,8 +17,6 @@ import webbrowser
 from Qt.QtWidgets import *
 
 import tpDcc
-from tpDcc.libs.python import decorators
-from tpDcc.libs.qt.core import qtutils
 
 import artellapipe
 import artellapipe.register
@@ -26,9 +24,7 @@ from artellapipe.managers import menus
 import artellapipe.libs.kitsu as kitsu_lib
 
 
-class PlotTwistMenu(menus.ArtellaMenusManager, object):
-    def __init__(self):
-        super(PlotTwistMenu, self).__init__()
+class PlotTwistMenu(menus.MenusManager, object):
 
     def create_menus(self, package_name, project):
         valid_creation = super(PlotTwistMenu, self).create_menus(package_name=package_name, project=project)
@@ -70,12 +66,3 @@ class PlotTwistMenu(menus.ArtellaMenusManager, object):
             return None
 
         webbrowser.open(project_url)
-
-
-@decorators.Singleton
-class PlotTwistMenuManagerSingleton(PlotTwistMenu, object):
-    def __init__(self):
-        PlotTwistMenu.__init__(self)
-
-
-artellapipe.register.register_class('MenusMgr', PlotTwistMenuManagerSingleton)
