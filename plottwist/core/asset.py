@@ -33,5 +33,3 @@ class PlotTwistAsset(asset.ArtellaAsset, object):
         return self.reference_file(
             file_type=file_type, namespace=self.get_id(),
             status=defines.ArtellaFileStatus.PUBLISHED, sync=sync)
-
-
